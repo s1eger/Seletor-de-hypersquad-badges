@@ -1,21 +1,65 @@
-import requests; from colorama import init, Fore
+import requests
+from colorama import init, Fore
+from os import system, name
+from time import sleep
+from pyfiglet import Figlet
 
 init(autoreset = True)
 
+figlet = Figlet(font = 'slant')
+
+
+print(figlet.renderText('SELETOR HYPESQUAD'))
+
+def clear():
+  system('clear' if name != 'nt' else 'cls') 
+
+
+def esperaelimpa():
+  sleep(1.5)
+  clear()
+
+
+def seletorhypesquad(escolha):
+  str(escolha)
+  if escolha == 'Bravery':
+    bravery = requests.post(url, json = {'house_id': '1'}, headers = {'authorization': token})
+    print(f'{Fore.MAGENTA}O hypesquad {hypesquad} foi adicionado a sua conta.')
+    esperaelimpa()
+
+  if escolha == 'Brilliance':
+    bravery = requests.post(url, json = {'house_id': '2'}, headers = {'authorization': token})
+    print(f'{Fore.MAGENTA}O hypesquad {hypesquad} foi adicionado a sua conta.')
+    esperaelimpa()
+
+  if escolha == 'Balance':
+    bravery = requests.post(url, json = {'house_id': '3'}, headers = {'authorization': token})
+    print(f'{Fore.MAGENTA}O hypesquad {hypesquad} foi adicionado a sua conta.')
+    esperaelimpa()
+  
+  elif hypesquad not in ('Bravery', 'Brilliance', 'Balance'):
+      print(f'{Fore.RED}Digite um hypesquad válido!')
+      sleep(1.5)
+      clear()
+      esperaelimpa()
+
+
+
 token = '' # coloque o token da sua conta aqui
 url = r'https://discord.com/api/v6/hypesquad/online'
+vazio = ''
 
-try:
-  hypesquad = str(input(f'Digite o hypesquad que você deseja [Bravery, Brilliance, Balance]:  ')).strip().capitalize()
+if token == vazio:
+  print(f'{Fore.RED}Insira o seu token na variavel token!')
+  sleep(4)
+  clear()
 
-  if hypesquad == 'Bravery':
-    bravery = requests.post(url, json = {'house_id': '1'}, headers = {'authorization': token})
 
-  if hypesquad == 'Brilliance':
-    bravery = requests.post(url, json = {'house_id': '2'}, headers = {'authorization': token})
+else:
+  try:
+    while True:
+      hypesquad = str(input(f'Digite o hypesquad que você deseja\n[Bravery, Brilliance, Balance]\n\n')).strip().capitalize()
+      seletorhypesquad(hypesquad)
 
-  if hypesquad == 'Balance':
-    bravery = requests.post(url, json = {'house_id': '3'}, headers = {'authorization': token})
-
-except Exception as erro:
-  print(f'{Fore.RED}Houve um erro... Código de erro: {erro}')
+  except Exception as erro:
+    print(f'{Fore.RED}Houve um erro... Código de erro: {erro}')
