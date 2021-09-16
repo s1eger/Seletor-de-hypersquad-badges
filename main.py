@@ -26,17 +26,17 @@ def seletorhypesquad(escolha):
   str(escolha)
   if escolha == 'Bravery':
     bravery = requests.post(url, json = {'house_id': '1'}, headers = {'authorization': token})
-    print(f'{Fore.MAGENTA}O hypesquad {hypesquad} foi adicionado a sua conta.')
+    print(f'{Fore.MAGENTA}O hypesquad Bravery foi adicionado a sua conta.')
     esperaelimpa()
 
   if escolha == 'Brilliance':
     brilliance = requests.post(url, json = {'house_id': '2'}, headers = {'authorization': token})
-    print(f'{Fore.MAGENTA}O hypesquad {hypesquad} foi adicionado a sua conta.')
+    print(f'{Fore.MAGENTA}O hypesquad Brilliance foi adicionado a sua conta.')
     esperaelimpa()
 
   if escolha == 'Balance':
     balance = requests.post(url, json = {'house_id': '3'}, headers = {'authorization': token})
-    print(f'{Fore.MAGENTA}O hypesquad {hypesquad} foi adicionado a sua conta.')
+    print(f'{Fore.MAGENTA}O hypesquad Balance foi adicionado a sua conta.')
     esperaelimpa()
   
   elif hypesquad not in ('Bravery', 'Brilliance', 'Balance'):
