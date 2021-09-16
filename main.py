@@ -54,7 +54,7 @@ if token == vazio:
 else:
   try:
     while True:
-      hypesquad = str(input(f'Digite o hypesquad que você deseja\n[Bravery, Brilliance, Balance]\n\n')).strip().capitalize()
+      hypesquad = str(input(f'{Fore.MAGENTA}Digite o hypesquad que você deseja\n[Bravery, Brilliance, Balance]\n\n')).strip().capitalize()
       seletorhypesquad(hypesquad)
 
   except Exception as erro:
