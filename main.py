@@ -4,10 +4,12 @@ from os import system, name
 from time import sleep
 from pyfiglet import Figlet
 
+token = '' # coloque o token da sua conta aqui
+url = r'https://discord.com/api/v6/hypesquad/online'
+
 init(autoreset = True)
 
 figlet = Figlet(font = 'slant')
-
 
 print(figlet.renderText('SELETOR HYPESQUAD'))
 
@@ -28,12 +30,12 @@ def seletorhypesquad(escolha):
     esperaelimpa()
 
   if escolha == 'Brilliance':
-    bravery = requests.post(url, json = {'house_id': '2'}, headers = {'authorization': token})
+    brilliance = requests.post(url, json = {'house_id': '2'}, headers = {'authorization': token})
     print(f'{Fore.MAGENTA}O hypesquad {hypesquad} foi adicionado a sua conta.')
     esperaelimpa()
 
   if escolha == 'Balance':
-    bravery = requests.post(url, json = {'house_id': '3'}, headers = {'authorization': token})
+    balance = requests.post(url, json = {'house_id': '3'}, headers = {'authorization': token})
     print(f'{Fore.MAGENTA}O hypesquad {hypesquad} foi adicionado a sua conta.')
     esperaelimpa()
   
@@ -43,10 +45,6 @@ def seletorhypesquad(escolha):
       clear()
       esperaelimpa()
 
-
-
-token = '' # coloque o token da sua conta aqui
-url = r'https://discord.com/api/v6/hypesquad/online'
 vazio = ''
 
 if token == vazio:
