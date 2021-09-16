@@ -1,57 +1,21 @@
-import requests
+import requests; from colorama import init, Fore
 
-token = '' # Seu token.
-url = 'https://discord.com/api/v6/hypesquad/online'
+init(autoreset = True)
 
-def rate_limited():
-    print('> Status: Erro   | Taxa limitada\n')
+token = '' # coloque o token da sua conta aqui
+url = r'https://discord.com/api/v6/hypesquad/online'
 
-def invalid_token():
-    print('> Status: Erro   | Token inválido\n')
+try:
+  hypesquad = str(input(f'Digite o hypesquad que você deseja [Bravery, Brilliance, Balance]:  ')).strip().capitalize()
 
-def badges():
-    while True:
-        option = str(input('[1] Hypersquad Bravery\n[2] Hypersquad Brilliance\n[3] Hypersquad Balance\n\n> Selecione uma badge do Discord: '))
+  if hypesquad == 'Bravery':
+    bravery = requests.post(url, json = {'house_id': '1'}, headers = {'authorization': token})
 
-        if option in ['1', 'Hypersquad Bravery', 'House of Bravery', 'Bravery']:
-            house_of_bravery = requests.post(url, json = {'house_id': '1'}, headers = {'authorization': token})
-            if house_of_bravery.status_code == 204:
-                print('> Status: Sucesso | Tipo: Hypersquad Bravery\n')
-            elif house_of_bravery.status_code == 429:
-                rate_limited()
-            elif house_of_bravery.status_code == 401:
-                invalid_token()
-                break
-            else:
-                print('%s\n' % (house_of_bravery.text))
+  if hypesquad == 'Brilliance':
+    bravery = requests.post(url, json = {'house_id': '2'}, headers = {'authorization': token})
 
-        elif option in ['2', 'Hypersquad Brilliance', 'House of Brilliance', 'Brilliance']:
-            house_of_brilliance = requests.post(url, json = {'house_id': '2'}, headers = {'authorization': token})
-            if house_of_brilliance.status_code == 204:
-                print('> Status: Sucesso | Tipo: Hypersquad Brilliance\n')
-            elif house_of_brilliance.status_code == 429:
-                rate_limited()
-            elif house_of_brilliance.status_code == 401:
-                invalid_token()
-                break
-            else:
-                print('%s\n' % (house_of_brilliance.text))
+  if hypesquad == 'Balance':
+    bravery = requests.post(url, json = {'house_id': '3'}, headers = {'authorization': token})
 
-        elif option in ['3', 'Hypersquad Balance', 'House of Balance', 'Balance']:
-            house_of_balance = requests.post(url, json = {'house_id': '3'}, headers = {'authorization': token})
-            if house_of_balance.status_code == 204:
-                print('> Status: Sucesso | Tipo: Hypersquad Balance\n')
-            elif house_of_balance.status_code == 429:
-                rate_limited()
-            elif house_of_balance.status_code == 401:
-                invalid_token()
-                break
-            else:
-                print('%s\n' % (house_of_balance.text))
-
-        else:
-            print('> Status: Erro   | Opção inválida\n')
-
-while True:
-    badges()
-    token = str(input('Discord token: '))
+except Exception as erro:
+  print(f'{Fore.RED}Houve um erro... Código de erro: {erro}')
