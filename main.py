@@ -39,7 +39,7 @@ def seletorhypesquad(escolha):
     print(f'{Fore.MAGENTA}O hypesquad Balance foi adicionado a sua conta.')
     esperaelimpa()
   
-  elif hypesquad not in ('Bravery', 'Brilliance', 'Balance'):
+  elif escolha not in ('Bravery', 'Brilliance', 'Balance'):
       print(f'{Fore.RED}Digite um hypesquad válido!')
       esperaelimpa()
 
