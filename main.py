@@ -40,8 +40,8 @@ def seletorhypesquad(escolha):
     esperaelimpa()
   
   elif escolha not in ('Bravery', 'Brilliance', 'Balance'):
-      print(f'{Fore.RED}Digite um hypesquad válido!')
-      esperaelimpa()
+    print(f'{Fore.RED}Digite um hypesquad válido!')
+    esperaelimpa()
 
 vazio = ''
 
