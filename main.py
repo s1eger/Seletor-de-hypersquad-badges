@@ -43,13 +43,13 @@ def seletorhypesquad(escolha):
     print(f'{Fore.RED}Digite um hypesquad válido!')
     esperaelimpa()
 
+
 vazio = ''
 
 if token == vazio:
   print(f'{Fore.RED}Insira o seu token na variavel token!')
   sleep(4)
   clear()
-
 
 else:
   try:
